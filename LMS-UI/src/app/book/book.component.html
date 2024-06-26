@@ -1,0 +1,73 @@
+<!-- book.component.html -->
+<div class="container">
+    <h1>Hogwarts Library</h1>
+  
+    <!-- Book List -->
+    <div class="card">
+      <h2>Book List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Edition</th>
+            <th>Published Year</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books">
+            <td>{{ book.title }}</td>
+            <td>{{book.author_name}}</td>
+            <td>{{ book.edition }}</td>
+            <td>{{ book.published_year }}</td>
+            <td>
+              <button (click)="getBookById(book.book_id)">Edit</button>
+              <button (click)="deleteBook(book.book_id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="selectedBook">
+      <h2>Edit Book</h2>
+      <div>
+        <label for="BookName">Book Name:</label>
+        <input id="BookName" [(ngModel)]="selectedBook.title" placeholder="Book Name">
+        <label for="authorname">Autor Name:</label>
+        <input id="authorname" [(ngModel)]="selectedBook.author_name" placeholder="Author Name">
+        <label for="edition">Edition:</label>
+        <input id="edition" [(ngModel)]="selectedBook.edition" placeholder="Edition">
+        <label for="publishedyear">Published Year:</label>
+        <input id="publishedyear" [(ngModel)]="selectedBook.published_year" placeholder="Published Year">
+      </div>
+      <button (click)="updateBook()">Save</button>
+    </div>
+    <!-- Add Book Form -->
+    <div class="card">
+      <h2>Add a New Book</h2>
+      <form (ngSubmit)="addBook()">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" [(ngModel)]="newBook.title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="title">Author:</label>
+          <input type="text" id="author_name" [(ngModel)]="newBook.author_name" name="author_name" required>
+        </div>
+        <div class="form-group">
+          <label for="edition">Edition:</label>
+          <input type="number" id="edition" [(ngModel)]="newBook.edition" name="edition" required>
+        </div>
+        <div class="form-group">
+          <label for="published_year">Published Year:</label>
+          <input type="date" id="published_year" [(ngModel)]="newBook.published_year" name="published_year" required>
+        </div>
+        <div  class="form-group">
+        <button type="submit">Add Book</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  

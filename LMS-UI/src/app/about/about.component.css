@@ -1,0 +1,46 @@
+/* Center the content and add padding */
+.about-container {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Title with a gradient text effect */
+  .about-container h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#ff4081, #007bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+  }
+  
+  /* Description text with some padding and line height */
+  .about-container p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 0 20px;
+  }
+  
+  /* Add a border and padding around the book details */
+  .about-container .book-details {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+  }
+  
+  /* Add some styling to the book titles and details */
+  .about-container .book-details h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .about-container .book-details p {
+    margin-bottom: 5px;
+  }
+  

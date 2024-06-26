@@ -1,0 +1,76 @@
+<!-- member.component.html -->
+<div class="container">
+<h1>Members Of Library</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Member Name</th>
+      <th>Phone No</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
+      <th>Subscription Type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of members">
+      <td>{{ member.member_name }}</td>
+      <td>{{ member.phone_no }}</td>
+      <td>{{ member.dob }}</td>
+      <td>{{ member.gender }}</td>
+      <td>{{ member.subscription_type }}</td>
+      <td>
+        <button (click)="getMemberById(member.member_id)">Edit</button>
+        <button (click)="deleteMember(member.member_id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="selectedMember">
+  <h2>Edit Member</h2>
+  <div>
+    <label for="memberName">Member Name:</label>
+    <input id="memberName" [(ngModel)]="selectedMember.member_name" placeholder="Member Name">
+    <label for="memberPh">Member Ph:</label>
+    <input id="memberPh" [(ngModel)]="selectedMember.phone_no" placeholder="Member Ph">
+    <label for="memberdob">Member D.O.B:</label>
+    <input id="memberdob" [(ngModel)]="selectedMember.dob" placeholder="Member D.O.B">
+    <label for="memberGender">Member Gender:</label>
+    <input id="memberGender" [(ngModel)]="selectedMember.gender" placeholder="Member Gender">
+    <label for="memberSubscriptionType">Member Subscription Type:</label>
+    <input id="memberSubscriptionType" [(ngModel)]="selectedMember.subscription_type" placeholder="Member Subscription Type">
+  </div>
+  <button (click)="updateMember()">Save</button>
+</div>
+
+<div class="card">
+  <h2>Add a New Member</h2>
+  <form (ngSubmit)="addMember()">
+    <div class="form-group">
+      <label for="newMemberName">Member Name:</label>
+      <input type="text" id="newMemberName" [(ngModel)]="newMember.member_name" name="member_name" required>
+    </div>
+    <div class="form-group">
+      <label for="newmemberPh">Member Phone:</label>
+      <input type="tel" id="newmemberPh" [(ngModel)]="newMember.phone_no" name="phone_no" required>
+    </div>
+    <div class="form-group">
+      <label for="newmemberdob">Member D.O.B:</label>
+      <input type="date" id="newmemberdob" [(ngModel)]="newMember.dob" name="dob" required>
+    </div>
+    <div class="form-group">
+      <label for="newmemberGender">Member Gender:</label>
+      <input type="text" id="newmemberGender" [(ngModel)]="newMember.gender" name="gender" required>
+    </div>
+    <div class="form-group">
+      <label for="newmemberSubscriptionType">Member Subscription Type:</label>
+      <input type="text" id="newmemberSubscriptionType" [(ngModel)]="newMember.subscription_type" name="subscription_type" required>
+    </div>
+    <div class="form-group">
+      <button type="submit">Add Member</button>
+    </div>
+  </form>
+</div>
+
+</div>

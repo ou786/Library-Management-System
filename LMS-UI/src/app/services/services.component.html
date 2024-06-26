@@ -1,0 +1,25 @@
+<h2>Our Services</h2>
+<div>
+  <button (click)="rentBook()">Rent a book</button>
+  <button (click)="buyBook()">Buy a book</button>
+</div>
+
+<div *ngIf="showRentForm" class="form-container">
+  <h3>Rent a Book</h3>
+  <form (ngSubmit)="onRentNow()">
+    <label for="bookName">Book Name:</label>
+    <input type="text" id="bookName" [(ngModel)]="bookName" name="bookName" required>
+    <label for="days">Number of Days:</label>
+    <input type="number" id="days" [(ngModel)]="days" name="days" required>
+    <button type="submit">Rent Now</button>
+  </form>
+</div>
+
+<div *ngIf="showBuyForm" class="form-container">
+  <h3>Buy a Book</h3>
+  <form (ngSubmit)="onBuyNow()">
+    <label for="bookName">Book Name:</label>
+    <input type="text" id="bookName" [(ngModel)]="bookName" name="bookName" required>
+    <button type="submit">Buy Now</button>
+  </form>
+</div>
